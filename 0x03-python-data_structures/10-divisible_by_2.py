@@ -7,5 +7,5 @@ def divisible_by_2(my_list=[]):
         if (j % 2) == 0:
             divs.append(True)
         else
-        divs.append(False)
+            divs.append(False)
     return divs
