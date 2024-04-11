@@ -2,11 +2,11 @@ import sys
 
 
 def init_board(n):
-    """Initia rgfrt trggtgt tyhythyhs.
+    """Initialize an `n`x`n` sized chessboard with 0's.
     Args:
-        n: integf rfr gt gtgt tialize
+        n: integer to initialize
 
-    Return: listr hgy tyhssboard
+    Return: list of chessboard
     """
     board = []
     [board.append([]) for i in range(n)]
@@ -15,11 +15,11 @@ def init_board(n):
 
 
 def board_deepcopy(board):
-    """Creat tgr r gtrr gtrcrd.
+    """Creates a deepcopy of a chessboard.
     Arg:
-        board: chessf rgr tg t from.
+        board: chessboard to make copy from.
 
-    Return: a deepchessboard.
+    Return: a deepcopy of a chessboard.
     """
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
@@ -27,12 +27,12 @@ def board_deepcopy(board):
 
 
 def get_solution(board):
-    """Crees the listrg trgtr g rtg fgb hessboard.
+    """Creates the list of lists representation of a solved chessboard.
 
     Arg:
-        board: lisyth yhyt swboard
+        board: list of cheswboard
 
-    Return: lgfbv  gtr trts.
+    Return: list of lists.
     """
     solution = []
     for r in range(len(board)):
@@ -44,13 +44,13 @@ def get_solution(board):
 
 
 def xout(board, row, col):
-    """rfe outgrg sboard.
+    """X out spots on a chessboard.
     All spots where non-attacking queens can no
     longer be played are X-ed out.
     Args:
-        board (list): The curboard.
-        row (int): The rofd r rf r frlayed.
-        col (int): The columnfdgr tg layed.
+        board (list): The current working chessboard.
+        row (int): The row where a queen was last played.
+        col (int): The column where a queen was last played.
     """
     # X out all forward spots
     for c in range(col + 1, len(board)):
@@ -95,12 +95,12 @@ def xout(board, row, col):
 
 
 def recursive_solve(board, row, queens, solutions):
-    """Recursivelyg fozzle.
+    """Recursively solve an N-queens puzzle.
     Args:
-        board (list): Ththtyhessboard.
-        row (int): Thegjhtyj row.
-        queens (int): The currghbgfhqueens.
-        solutions (list): A liggbgfsolutions.
+        board (list): The current working chessboard.
+        row (int): The current working row.
+        queens (int): The current number of placed queens.
+        solutions (list): A list of lists of solutions.
     Returns:
         solutions
     """
