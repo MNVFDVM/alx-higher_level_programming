@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-"""Defineclass."""
+"""Defineslass."""
 
 
 class Rectangle:
-    """Repgle.
+    """Represeangle.
 
     Attributes:
-        n (int): The numinstances.
+        number_of_instances (int): The numbinstances.
     """
 
-    n = 0
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        """Initializangle.
+        """Initialitangle.
 
         Args:
-            width (int): The widew rectangle.
-            height (int): The heigctangle.
+            width (int): The widtrectangle.
+            height (int): The heighrectangle.
         """
         type(self).number_of_instances += 1
         self.width = width
@@ -24,7 +24,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Geectangle."""
+        """Gete Rectangle."""
         return self.__width
 
     @width.setter
@@ -37,7 +37,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """tgtrgtrtgngle."""
+        """Getectangle."""
         return self.__height
 
     @height.setter
@@ -49,37 +49,37 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Returntangle."""
+        """Rethe Rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
-        """Returnctangle."""
+        """Returnle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """Retable represenectangle.
+        """Return ectangle.
 
-        Representcharacter.
+        Representsharacter.
         """
         if self.__width == 0 or self.__height == 0:
             return ("")
 
-        r = []
-        for k in range(self.__height):
-            [r.append('#') for h in range(self.__width)]
-            if k != self.__height - 1:
-                r.append("\n")
-        return ("".join(r))
+        rect = []
+        for i in range(self.__height):
+            [rect.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
-        """Return Rectangle."""
-        r = "Rectangle(" + str(self.__width)
-        r += ", " + str(self.__height) + ")"
-        return (r)
+        """Returnctangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
     def __del__(self):
-        """Princtangle."""
-        type(self).n -= 1
+        """Prinectangle."""
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")
