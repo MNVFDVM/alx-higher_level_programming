@@ -6,11 +6,11 @@ class Rectangle:
     """Represenangle.
 
     Attributes:
-        number_of_instances (int): The numnstances.
+        n (int): The numnstances.
         print_symbol (any): Thepresentation.
     """
 
-    number_of_instances = 0
+    n = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
@@ -20,7 +20,7 @@ class Rectangle:
             width (int): The wiectangle.
             height (int): The heighngle.
         """
-        type(self).number_of_instances += 1
+        type(self).n += 1
         self.width = width
         self.height = height
 
@@ -83,5 +83,5 @@ class Rectangle:
 
     def __del__(self):
         """Print a messagangle."""
-        type(self).number_of_instances -= 1
+        type(self).n -= 1
         print("Bye rectangle...")
