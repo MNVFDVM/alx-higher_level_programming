@@ -77,9 +77,9 @@ class Rectangle:
 
     def __repr__(self):
         """Return the Rectangle."""
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        r = "Rectangle(" + str(self.__width)
+        r += ", " + str(self.__height) + ")"
+        return (r)
 
     def __del__(self):
         """Print a messagangle."""
