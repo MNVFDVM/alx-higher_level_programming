@@ -101,11 +101,13 @@ class Rectangle:
             if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
+
     def __repr__(self):
         """ReturnRectangle."""
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
+
     def __del__(self):
         """PrintRectangle."""
         type(self).number_of_instances -= 1
