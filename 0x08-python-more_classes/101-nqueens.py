@@ -1,61 +1,61 @@
 #!/usr/bin/python3
-"""Solvetfgh gtrg grtuzzle.
+"""Solves the N-queens puzzle.
 
-Detetrgtrg tgtrg gtg  placing 
-N fdfdgfdgdfgfd  gtrtrc hessboard.
+Determines all possible solutions to placing N
+N non-attacking queens on an NxN chessboard.
 
 Example:
     $ ./101-nqueens.py N
 
-N mhfhbhgfhgfto 4.
+N must be an integer greater than or equal to 4.
 
 Attributes:
-    board (list): A lisfhbgfhbfhessboard.
-    solutions (list): A listbgfbgfbgutions.
+    board (list): A list of lists representing the chessboard.
+    solutions (list): A list of lists containing solutions.
 
-Soludfvfdv  jcxjnc udscu jdcu dsuicdsi  iic ci sdic8i dcf
-wheregfhgfhbgfjbdfov djodnvodivd odvoidjvfd vooovdfov odfvod
-quhessboard.
+Solutions are represented in the format [[r, c], [r, c], [r, c], [r, c]]
+where `r` and `c` represent the row and column, respectively, where a
+queen must be placed on the chessboard.
 """
 import sys
 
 
 def init_board(n):
-    """Initializhtyoard withs."""
-    board = []
-    [board.append([]) for i in range(n)]
-    [row.append(' ') for i in range(n) for row in board]
-    return (board)
+    """Initialize an `n`x`n` sized chessboard with 0's."""
+    b = []
+    [b.append([]) for k in range(n)]
+    [row.append(' ') for k in range(n) for row in b]
+    return (b)
 
 
 def board_deepcopy(board):
-    """Returghgssboard."""
+    """Return a deepcopy of a chessboard."""
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
     return (board)
 
 
 def get_solution(board):
-    """Returgfhgfhghhessboard."""
-    solution = []
+    """Return the list of lists representation of a solved chessboard."""
+    s = []
     for r in range(len(board)):
         for c in range(len(board)):
             if board[r][c] == "Q":
-                solution.append([r, c])
+                s.append([r, c])
                 break
-    return (solution)
+    return (s)
 
 
 def xout(board, row, col):
-    """fgdfbgfbfssboard.
+    """X out spots on a chessboard.
 
-    All fbvfbgfn no
-    longbgfbgfhbgout.
+    All spots where non-attacking queens can no
+    longer be played are X-ed out.
 
     Args:
-        board (list): The currefdgfsboard.
-        row (int): The rfvfcgblayed.
-        col (int): The columgfhplayed.
+        board (list): The current working chessboard.
+        row (int): The row where a queen was last played.
+        col (int): The column where a queen was last played.
     """
     # X out all forward spots
     for c in range(col + 1, len(board)):
@@ -100,15 +100,15 @@ def xout(board, row, col):
 
 
 def recursive_solve(board, row, queens, solutions):
-    """Recursxcvbczzle.
+    """Recursively solve an N-queens puzzle.
 
     Args:
-        board (list): The cufdgfdsboard.
-        row (int): The cufgvdfgow.
-        queens (int): The currelaced quyghens.
-        solutions (list): A lisions.
+        board (list): The current working chessboard.
+        row (int): The current working row.
+        queens (int): The current number of placed queens.
+        solutions (list): A list of lists of solutions.
     Returns:
-        solutirfref
+        solutions
     """
     if queens == len(board):
         solutions.append(get_solution(board))
