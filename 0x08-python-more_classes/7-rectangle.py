@@ -6,12 +6,12 @@ class Rectangle:
     """Reprle.
 
     Attributes:
-        n (int): Thengle instances.
+        number_of_instances (int): Thengle instances.
         print_symbol (any): The symbntation.
     """
 
-    n = 0
-    p = "#"
+    number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initiectangle.
@@ -20,7 +20,7 @@ class Rectangle:
             width (int): The widtctangle.
             height (int): The heighctangle.
         """
-        type(self).n += 1
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -70,7 +70,7 @@ class Rectangle:
 
         r = []
         for k in range(self.__height):
-            [r.append(str(self.p)) for h in range(self.__width)]
+            [r.append(str(self.print_symbol)) for h in range(self.__width)]
             if i != self.__height - 1:
                 r.append("\n")
         return ("".join(r))
@@ -83,5 +83,5 @@ class Rectangle:
 
     def __del__(self):
         """Prinectangle."""
-        type(self).n -= 1
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")
