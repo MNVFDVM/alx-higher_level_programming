@@ -2,6 +2,7 @@
 
 """Defi gfgf g gffgfhgfh ghgfhghgn."""
 
+
 def add_integer(a, b=98):
     """Retugfhb thgf ghtr h  hty d b.
     Flp gdf g jjj ijijmjokhgyuj formed.
