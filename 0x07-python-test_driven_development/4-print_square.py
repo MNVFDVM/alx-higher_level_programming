@@ -2,6 +2,7 @@
 
 """Defindfgf dfgfdgfdg fdgfdgn."""
 
+
 def print_square(size):
     """Printrgtr rfgrfgtrg rgtrgacter.
     Args:
