@@ -9,7 +9,7 @@ def is_same_class(obj, a_class):
         obj: Theewfer erferfer ferferfck.
         a_class: Tdscfe freferf referf erferfbj to.
     Returns:
-        If erfer ferferf erferf referlass - True.
+        If obj is exactly an instance of a_class - True.
         Otherwise - False.
     """
     if type(obj) == a_class:
