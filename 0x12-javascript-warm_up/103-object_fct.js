@@ -4,16 +4,16 @@ const myObject = {
   value: 12,
   incr: function () {
     this.value++;
+  },
+  print: function () {
+    console.log(`{ type: 'object', value: ${this.value}, incr: [Function: incr] }`);
   }
 };
 
-console.log(myObject);
-
+myObject.print();
 myObject.incr();
-console.log(myObject);
-
+myObject.print();
 myObject.incr();
-console.log(myObject);
-
+myObject.print();
 myObject.incr();
-console.log(myObject);
+myObject.print();
