@@ -1,29 +1,29 @@
 #!/usr/bin/python3
-"""
-This script prints the first State object
-from the database `hbtn_0e_6_usa`.
-"""
-
-from sys import argv
-from model_state import Base, State
+"""Prints the first State object from the database hbtn_0e_6_usa."""
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
 if __name__ == "__main__":
-    """
-    Access to the database and get a state
-    from the database.
-    """
+    # Establish connection to MySQL server running on localhost at port 3306
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
 
-    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3])
-    engine = create_engine(db_uri)
+    # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
 
+    # Create a Session instance
     session = Session()
-    instance = session.query(State).order_by(State.id).first()
 
-    if instance is None:
-        print('Nothing')
+    # Query the first State object ordered by id
+    first_state = session.query(State).order_by(State.id).first()
+
+    # Print the result in the specified format or 'Nothing' if no states found
+    if first_state:
+        print("{}: {}".format(first_state.id, first_state.name))
     else:
-        print('{0}: {1}'.format(instance.id, instance.name))
+        print("Nothing")
+
+    # Close the session
+    session.close()
