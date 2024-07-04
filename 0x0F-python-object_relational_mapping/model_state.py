@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Defines State class using SQLAlchemy and connects to a MySQL database."""
+"""
+Defines the State class using SQLAlchemy and connects to a MySQL database.
+"""
+
 import sys
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -7,7 +10,13 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 class State(Base):
-    """State class representing states table in MySQL database."""
+    """
+    State class representing states table in MySQL database.
+
+    Attributes:
+        id (int): Primary key, auto-incremented integer.
+        name (str): State name, maximum 128 characters.
+    """
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
